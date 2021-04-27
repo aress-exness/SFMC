@@ -4,7 +4,6 @@ define([
     Postmonger
 ) {
     'use strict';
-
     var connection = new Postmonger.Session();
     var authTokens = {};
     var payload = {};
@@ -66,8 +65,9 @@ define([
     }
 
     function save() {
-        var postcardURLValue = $('#postcard-url').val();
-        var postcardTextValue = $('#postcard-text').val();
+        var name = 7;
+        
+         payload.name = name;
 
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
@@ -79,6 +79,5 @@ define([
         console.log(payload);
         connection.trigger('updateActivity', payload);
     }
-
-
+           
 });
